@@ -5,8 +5,9 @@ import Intro from "components/intro";
 import ListItem from "components/list-item";
 import GridItem from "components/grid-item";
 import { demon, hero, boruto } from "public";
+import { getAllPosts } from "lib/api";
 
-export default function Home() {
+export default function Home({ posts }) {
   return (
     <div className="max-w-[1480px] mx-auto px-6 md:px-16">
       <Head>
@@ -18,29 +19,22 @@ export default function Home() {
       <Navbar />
       <Intro />
       <ListItem />
-      <div className="flex flex-wrap gap-6 pb-10 justify-center">
-        <GridItem
-          author="Б.Золжаргал"
-          date="2023 оны 1-р сарын 11"
-          img={hero}
-          title="My Hero Academia"
-          content="Boku no Hero Academia"
-        />
-        <GridItem
-          author="Б.Золжаргал"
-          date="2023 оны 1-р сарын 11"
-          img={demon}
-          title="Kimetsu no yaiba"
-          content="Чөтгөрийн ангууч"
-        />
-        <GridItem
-          author="Б.Золжаргал"
-          date="2023 оны 1-р сарын 11"
-          img={boruto}
-          title="Boruto"
-          content="Боруто"
-        />
+      <pre>{JSON.stringify(posts, null, 2)}</pre>
+      <div className="custom-grid gap-6 pb-10 mx-auto">
+        {posts.map((post, index) => (
+          <GridItem post={post} key={index} />
+        ))}
       </div>
     </div>
   );
 }
+
+export const getStaticProps = async () => {
+  const posts = await getAllPosts();
+
+  return {
+    props: {
+      posts,
+    },
+  };
+};
