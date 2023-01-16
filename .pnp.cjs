@@ -34,6 +34,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["@next/font", "npm:13.1.1"],\
+            ["@portabletext/react", "virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:2.0.0"],\
             ["@sanity/client", "npm:4.0.1"],\
             ["autoprefixer", "virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:10.4.13"],\
             ["next", "virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:13.1.1"],\
@@ -249,6 +250,49 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@npmcli/move-file", "npm:2.0.1"],\
             ["mkdirp", "npm:1.0.4"],\
             ["rimraf", "npm:3.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@portabletext/react", [\
+        ["npm:2.0.0", {\
+          "packageLocation": "./.yarn/cache/@portabletext-react-npm-2.0.0-c102a73ec9-50569a4dac.zip/node_modules/@portabletext/react/",\
+          "packageDependencies": [\
+            ["@portabletext/react", "npm:2.0.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:2.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@portabletext-react-virtual-6f74c56939/0/cache/@portabletext-react-npm-2.0.0-c102a73ec9-50569a4dac.zip/node_modules/@portabletext/react/",\
+          "packageDependencies": [\
+            ["@portabletext/react", "virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:2.0.0"],\
+            ["@portabletext/toolkit", "npm:2.0.0"],\
+            ["@portabletext/types", "npm:2.0.0"],\
+            ["@types/react", null],\
+            ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@portabletext/toolkit", [\
+        ["npm:2.0.0", {\
+          "packageLocation": "./.yarn/cache/@portabletext-toolkit-npm-2.0.0-8124600e80-0f126d50e0.zip/node_modules/@portabletext/toolkit/",\
+          "packageDependencies": [\
+            ["@portabletext/toolkit", "npm:2.0.0"],\
+            ["@portabletext/types", "npm:2.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@portabletext/types", [\
+        ["npm:2.0.0", {\
+          "packageLocation": "./.yarn/cache/@portabletext-types-npm-2.0.0-db4f5194a5-6bacbba969.zip/node_modules/@portabletext/types/",\
+          "packageDependencies": [\
+            ["@portabletext/types", "npm:2.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -478,6 +522,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["blog", "workspace:."],\
             ["@next/font", "npm:13.1.1"],\
+            ["@portabletext/react", "virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:2.0.0"],\
             ["@sanity/client", "npm:4.0.1"],\
             ["autoprefixer", "virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:10.4.13"],\
             ["next", "virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:13.1.1"],\
