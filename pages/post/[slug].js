@@ -1,12 +1,14 @@
 import Layout from "components/layout";
 import { getSinglePost, getAllPosts } from "lib/api";
 import { PortableText } from "@portabletext/react";
+// import { Carousel } from "react-responsive-carousel";
 
 export default ({ post }) => {
+  
   return (
     <Layout>
       <div className="flex flex-col gap-4 w-full">
-        <pre>{JSON.stringify(post, null, 2)}</pre>
+        {/* <pre>{JSON.stringify(post, null, 2)}</pre> */}
         <div className="flex w-full pt-6 gap-6 items-center">
           <img
             className="rounded-full w-12 h-12"
@@ -19,13 +21,22 @@ export default ({ post }) => {
         </div>
         <h1 className="font-bold text-3xl text-black">{post.title}</h1>
         <h4>{post.category}</h4>
-        <div className="flex flex-col md:flex-row w-full gap-4">
-          <img
+        <div className="flex flex-col w-full gap-4">
+          {/* <img
             className="w-full md:w-[350px] object-cover"
             src={post.image}
             alt={post.title}
-          />
+          /> */}
           <PortableText value={post.content} />
+          {/* <Carousel> */}
+            {post.content.map((asset, index) =>
+              asset.asset === "" || asset.asset === null ? null : (
+                <div>
+                  <img src={asset.asset} alt={index} />
+                </div>
+              )
+            )}
+          {/* </Carousel> */}
         </div>
       </div>
     </Layout>

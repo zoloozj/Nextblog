@@ -12,7 +12,7 @@ export default function Navbar() {
   return (
     <div className="py-6">
       <div className="bg-transparent flex justify-between">
-        <Link href="#" className="uppercase text-2xl font-bold text-blue-800">
+        <Link href="/" className="uppercase text-2xl font-bold text-blue-800">
           Золоо's Блог
         </Link>
         <div className="gap-4 justify-around items-center text-lg font-semibold hidden md:flex">
