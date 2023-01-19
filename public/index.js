@@ -5,5 +5,6 @@ import profile from "./images/profile.jpg";
 import demon from "./images/demon.jpg";
 import hero from "./images/hero.png";
 import boruto from "./images/boruto.jpg";
-
-export { hamburgerIcon, times, logo, profile, demon, hero, boruto };
+import moon from "./icon/moon.svg";
+import sun from "./icon/sun.svg";
+export { hamburgerIcon, times, logo, profile, demon, hero, boruto, moon, sun };

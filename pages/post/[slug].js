@@ -1,10 +1,19 @@
 import Layout from "components/layout";
-import { getSinglePost, getAllPosts } from "lib/api";
+import { getSinglePost, getPaginatedPosts } from "lib/api";
 import { PortableText } from "@portabletext/react";
-// import { Carousel } from "react-responsive-carousel";
-
+import moment from "moment";
+import { useRouter } from "next/router";
 export default ({ post }) => {
-  
+
+  const router = useRouter();
+
+  if(router.isFallback) return (
+    <layout>
+      <h1>Түр хүлээнэ үү...</h1>
+    </layout>
+  )
+
+  moment.locale("en");
   return (
     <Layout>
       <div className="flex flex-col gap-4 w-full">
@@ -16,27 +25,20 @@ export default ({ post }) => {
             alt={post.publisher.name}
           />
           <p className="text-gray-400 text-base">
-            {post.publisher.name}, {post.date}
+            {post.publisher.name}, {moment(post.date).format("lll")}
           </p>
         </div>
-        <h1 className="font-bold text-3xl text-black">{post.title}</h1>
+        <h1 className="font-bold text-3xl">{post.title}</h1>
         <h4>{post.category}</h4>
         <div className="flex flex-col w-full gap-4">
-          {/* <img
-            className="w-full md:w-[350px] object-cover"
-            src={post.image}
-            alt={post.title}
-          /> */}
-          <PortableText value={post.content} />
-          {/* <Carousel> */}
-            {post.content.map((asset, index) =>
-              asset.asset === "" || asset.asset === null ? null : (
-                <div>
-                  <img src={asset.asset} alt={index} />
-                </div>
-              )
-            )}
-          {/* </Carousel> */}
+          <PortableText key={post._id} value={post.content} />
+          {post.content.map((asset, index) =>
+            asset.asset === "" || asset.asset === null ? null : (
+              <div>
+                <img key={index} src={asset.asset} alt={index} />
+              </div>
+            )
+          )}
         </div>
       </div>
     </Layout>
@@ -53,7 +55,7 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const posts = await getAllPosts();
+  const posts = await getPaginatedPosts(0,);
   const data = posts.map((post) => ({
     params: {
       slug: post.slug,
@@ -61,6 +63,6 @@ export const getStaticPaths = async () => {
   }));
   return {
     paths: data,
-    fallback: false,
+    fallback: true,
   };
 };
