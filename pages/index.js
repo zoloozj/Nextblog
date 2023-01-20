@@ -1,5 +1,5 @@
 import GridItem from "components/grid-item";
-import { getAllPosts } from "lib/api";
+import { getPaginatedPosts } from "lib/api";
 import Layout from "components/layout";
 import Intro from "components/intro";
 import ListItem from "components/list-item";
@@ -7,7 +7,8 @@ import { usePosts } from "hooks/usePosts";
 const PAGE_LIMIT = 3;
 
 export default function Home({ posts }) {
-  const { data, isLoading, error, size, setSize } = usePosts();
+  const { data, isLoading, error, size, setSize } = usePosts({posts});
+  console.log(posts);
   return (
     <Layout>
       <Intro />
@@ -36,11 +37,12 @@ export default function Home({ posts }) {
 }
 
 export const getStaticProps = async () => {
-  const posts = await getAllPosts(1, PAGE_LIMIT);
-
+  const posts = await getPaginatedPosts(0, PAGE_LIMIT);
+  console.log("Index Дахин build хийгдлээ")
   return {
     props: {
       posts,
     },
+    // revalidate: 10,
   };
 };

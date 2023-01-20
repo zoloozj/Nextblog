@@ -1,9 +1,9 @@
 import useSWRInfinite from "swr/infinite";
 const PAGE_LIMIT = 3;
-export const usePosts = () => {
+export const usePosts = ({initialData}) => {
 
   const { data, error, size, setSize } = useSWRInfinite(
-    (index) => `/api/posts?page=${index}&limit=${PAGE_LIMIT}`
+    (index) => `/api/posts?page=${index}&limit=${PAGE_LIMIT}`, {initialData: [initialData]}
   );
 
   return {
